@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bait &amp; Switch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body ng-controller="sessionController as vm">
+    <label class="title" for="showDuration">{{::vm.title}}</label>
+    <input class="ng-hide" type="checkbox" ng-model="vm.showDuration" id="showDuration" />
+    <span ng-if="vm.showDuration">({{::vm.duration}})</span>
+
+    <topic ng-repeat="topic in ::vm.innerTopics" shower="vm.shower" topic="topic" index="$index" show-duration="vm.showDuration" />
+    <script src="script.js"></script>
+</body>
+</html>

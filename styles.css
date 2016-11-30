@@ -1,0 +1,51 @@
+﻿body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    user-select: none;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.topicContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
+
+.topicTitle:hover {
+    background-color: black;
+    color: white;
+}
+
+.innerTopicsContainer {
+    padding-left: 1em;
+    display: none;
+}
+
+.collapsibleInput:checked ~ .innerTopicsContainer {
+    display: block;
+}
+
+.collapsibleInput:checked + .hasChildren::before {
+    font-weight: bolder;
+    content: "  -";
+}
+
+.hasChildren {
+    margin-left: -1em;
+    position: relative;
+    top: -1.3em;
+    height: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .hasChildren::before {
+        content: "+";
+    }
