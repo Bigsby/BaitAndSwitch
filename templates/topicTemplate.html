@@ -1,8 +1,25 @@
 <div class="topicContainer">
-    <div><b class="topicTitle" ng-click="$ctrl.shower.show($ctrl.topic)">{{$ctrl.previousPath ? $ctrl.previousPath + '.' : ''}}{{($ctrl.index + 1) + '. ' + $ctrl.topic.name}}</b> <span ng-if="$ctrl.showDuration">({{::$ctrl.topic.duration}})</span></div>
-    <input ng-if="$ctrl.topic.innerTopics.length" type="checkbox" class="ng-hide collapsibleInput" id="{{$ctrl.previousPath ? $ctrl.previousPath + '.' : ''}}{{$ctrl.index + 1}}" />
-    <label ng-if="$ctrl.topic.innerTopics.length" ng-class="{hasChildren:$ctrl.topic.innerTopics.length}" for="{{$ctrl.previousPath ? $ctrl.previousPath + '.' : ''}}{{::$ctrl.index + 1}}"></label>
+    selected: {{$ctrl.topic.selected}}
+    <div>
+        <b class="topicTitle"
+           ng-class="{selectedTopic: $ctrl.topic.selected}"
+           ng-click="$ctrl.shower.show($ctrl.topic)">
+            {{$ctrl.previousPath ? $ctrl.previousPath + '.' : ''}}{{($ctrl.index + 1) + '. ' + $ctrl.topic.name}}
+        </b>
+        <span ng-if="$ctrl.showDuration">({{::$ctrl.topic.duration}})</span>
+    </div>
+    <input ng-if="$ctrl.topic.innerTopics.length"
+           type="checkbox"
+           class="ng-hide collapsibleInput"
+           id="{{$ctrl.previousPath ? $ctrl.previousPath + '.' : ''}}{{$ctrl.index + 1}}" />
+    <label ng-if="$ctrl.topic.innerTopics.length"
+           ng-class="{hasChildren:$ctrl.topic.innerTopics.length}"
+           for="{{$ctrl.previousPath ? $ctrl.previousPath + '.' : ''}}{{::$ctrl.index + 1}}"></label>
     <div class="innerTopicsContainer">
-        <topic ng-repeat="topic in ::$ctrl.topic.innerTopics" topic="topic" shower="$ctrl.shower" index="$index" previous-path="($ctrl.previousPath ? $ctrl.previousPath + '.' : '') + ($ctrl.index + 1)" show-duration="$ctrl.showDuration" />
+        <topic ng-repeat="topic in ::$ctrl.topic.innerTopics"
+               topic="topic" shower="$ctrl.shower"
+               index="$index"
+               previous-path="($ctrl.previousPath ? $ctrl.previousPath + '.' : '') + ($ctrl.index + 1)"
+               show-duration="$ctrl.showDuration" />
     </div>
 </div>

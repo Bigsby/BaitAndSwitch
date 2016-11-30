@@ -19,6 +19,11 @@
 }
 
 .topicTitle:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.selectedTopic {
     background-color: black;
     color: white;
 }
@@ -34,7 +39,7 @@
 
 .collapsibleInput:checked + .hasChildren::before {
     font-weight: bolder;
-    content: "  -";
+    content: "<";
 }
 
 .hasChildren {
